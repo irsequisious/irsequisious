@@ -1,0 +1,42 @@
+version: 0.2
+env:
+    parameter-store:
+        GITHUB_TOKEN: GITHUB_TOKEN
+        IRSEQUISIOUS_DOMAIN_NAME: IRSEQUISIOUS_DOMAIN_NAME
+        IRSEQUISIOUS_STATIC_DOMAIN_NAME: IRSEQUISIOUS_STATIC_DOMAIN_NAME
+phases:
+    install:
+        runtime-versions:
+            nodejs: 14
+        commands:
+            - npm install --legacy-peer-deps
+            - npm install -g webpack webpack-cli
+            - export CODEBUILD_SRC_DIR_PUBLIC_BUILD=${CODEBUILD_SRC_DIR}/public/build
+    pre_build:
+        commands:
+            - echo $GITHUB_TOKEN
+            - echo $CODEBUILD_SRC_DIR && ls -la $CODEBUILD_SRC_DIR
+    build:
+        commands:
+            - mkdir public/build
+            - npm run webpack
+            - npm run webpack-server
+    post_build:
+        commands:
+            - ls -la $CODEBUILD_SRC_DIR
+            - ls -la $CODEBUILD_SRC_DIR_PUBLIC_BUILD
+artifacts:
+    secondary-artifacts:
+        irsequisious_build_artifacts:
+            files:
+                - "appspec.yml"
+                - "scripts/**/*"
+                - "server.js"
+                - "package.json"
+                - "package-lock.json"
+                - "public/**/*"
+                - "configuration/**/*"
+        irsequisious_static_build_artifacts:
+            files:
+                - "**/*"
+            base-directory: "public/build"

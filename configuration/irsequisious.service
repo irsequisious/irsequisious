@@ -1,0 +1,23 @@
+[Unit]
+Description=irsequisious
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /var/www/irsequisious/server.js
+# Required on some systems
+WorkingDirectory=/var/www/irsequisious
+Restart=always
+RestartSec=10
+# Configure service limits
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=irsequisious
+User=ubuntu
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
