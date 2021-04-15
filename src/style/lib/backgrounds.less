@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2017-2019.
+ * Alberto Organista Ramírez - All rights reserved.
+ * Project Name: irsequisious
+ * Last Modification: 2019-09-15 01:10:00 CDT
+ */
+
+@import "variables.less";
+
+.background(@from, @dest) {
+	background: @from;
+	background: linear-gradient(@from, @dest);
+}
+.background2(@from, @dest) {
+	background: @from;
+	background: linear-gradient(to right, @from, @dest);
+}
+
+.background1 { .background(@gradient1-color1, @gradient1-color2); }
+.background2 { .background(@gradient2-color1, @gradient2-color2); }
+.background3 { .background(@gradient3-color1, @gradient3-color2); }
+.background4 { .background(@gradient4-color1, @gradient4-color2); }
+.background5 { .background(@gradient5-color1, @gradient5-color2); }
+.background6 { .background(@gradient6-color1, @gradient6-color2); }
+.background7 { .background(@gradient7-color1, @gradient7-color2); }
+.background8 { .background(@gradient8-color1, @gradient8-color2); }
+.background9 { .background(@gradient9-color1, @gradient9-color2); }
+.background10{ .background2(#FFF, #F4F4F4); }
+.background11{ .background2(#FFF, #EAEAEA); }

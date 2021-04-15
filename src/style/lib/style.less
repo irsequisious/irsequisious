@@ -1,0 +1,191 @@
+/*
+ * Copyright (c) 2017-2021.
+ * Alberto Organista Ramírez - All rights reserved.
+ * Project Name: irsequisious
+ * Last Modification: 2021-04-05 12:45:55 CDT
+ */
+
+@import "variables.less";
+@import "backgrounds.less";
+
+:local .container { display: block; overflow: hidden; width: 100%; }
+
+:local .cover-main-outer      		{ transform: rotate(-6deg); transform-origin: center center; margin: -10rem -10rem; background: @gradient5-color2; }
+:local .cover-main	        	  	{ margin: 0 -10rem; padding: 20rem 20rem 30rem 20rem; box-sizing: border-box; transform: rotate(12deg); transform-origin: center center; .background(#6681EA, #7E43AA); }
+:local .cover-main-inside			{ transform: rotate(-6deg); max-width: @width-desktop; width: 100%; margin: auto; padding: 0 1rem; box-sizing: border-box; }
+:local .cover-main-inside h1		{ color: #FFF; max-width: 50rem; font-size: 5.0rem; font-weight: 900; }
+:local .cover-main-inside p			{ color: #FFF; max-width: 50rem; font-size: 1.4rem; }
+
+:local .cover-main-logo				{ height: 10rem; margin: 1rem 0; }
+
+//:local .cover-separator 			{ .background11; transform: rotate(-6deg); transform-origin: center center; margin: 0 -10rem; padding: 2rem; box-sizing: border-box; display: none; }
+//:local .cover-separator2 			{ .background10; transform: rotate(-6deg); transform-origin: center center; margin: 0 -10rem; padding: 2rem; box-sizing: border-box; display: none; }
+
+:local .cover-services-outer        { transform: rotate(-6deg); transform-origin: center center; margin: -10rem -10rem; .background(@gradient5-color1, @gradient4-color1); }
+:local .cover-services				{ transform: rotate(12deg); transform-origin: center center; margin: 0 -10rem; padding: 10rem 1rem; box-sizing: border-box; .background9;}
+:local .cover-services-inside		{ transform: rotate(-6deg); max-width: @width-desktop; width: 100%; margin: 0 auto; }
+:local .cover-services-inside h1	{}
+:local .cover-services-inside p		{ font-size: 1.2rem; }
+
+:local .services 					{ display: flex; flex-wrap: wrap; justify-content: space-between; margin: 0 auto; padding: 0; width: 100%; max-width: @width-desktop;}
+
+:local .service						{ display: block; list-style: none; margin: 0 0 1rem 0; padding: 0; width: ~"calc(25% - 1rem)"; text-align: center;}
+:local .service + .service			{}
+:local .service-image				{ width: 100%; border-radius: 0.5rem; margin: 0 0 1rem 0; }
+:local .service-description			{ }
+
+:local .cover-clients-outer         { transform: rotate(6deg); transform-origin: center center; margin: 20rem -10rem; .background(@gradient5-color2, @gradient4-color1); z-index: 9973; }
+:local .cover-clients			    { .background9; transform: rotate(-12deg); transform-origin: center center; margin: -20rem -10rem 20rem -10rem; padding: 10rem 1rem; box-sizing: border-box; }
+:local .cover-clients-inside	    { transform: rotate(6deg); max-width: @width-desktop; width: 100%; margin: 0 auto; }
+:local .cover-clients-inside h1   	{ }
+:local .cover-clients-inside h2	   	{ }
+:local .cover-clients-inside p	    { font-size: 1.2rem; }
+
+:local .clients 					{ display: flex; flex-wrap: wrap; justify-content: space-between; margin: 0 auto; padding: 0; width: 100%; max-width: @width-desktop; }
+
+:local .client						{ display: block; list-style: none; margin: 0 0 1rem 0; padding: 0; width: ~"calc(16.6666% - 1rem)"; text-align: center; }
+:local .client + .client			{}
+:local .client-image				{  width: 100%; border-radius: 0.5rem; margin: 0 0 1rem 0; }
+
+:local .cover-benefits-outer        { transform: rotate(-6deg); transform-origin: center center; margin: -20rem -10rem; .background(@gradient5-color2, @gradient4-color1); z-index: 9971;}
+:local .cover-benefits				{ transform: rotate(12deg); transform-origin: center center; margin: 0 -10rem; padding: 10rem 1rem; box-sizing: border-box; .background(@gradient5-color1, @gradient5-color2); }
+:local .cover-benefits-inside		{ transform: rotate(-6deg); max-width: @width-desktop; width: 100%; margin: 0 auto; color: #FFF; }
+:local .cover-benefits-inside h1	{ font-size: 2.6rem; }
+:local .cover-benefits-inside h2	{ font-size: 1.6rem; }
+:local .cover-benefits-inside p	    {  }
+
+:local .benefits 		    		{ display: flex; flex-wrap: wrap; justify-content: space-between; margin: 0 auto; padding: 0; width: 100%; max-width: @width-desktop;  }
+
+:local .benefit						{ display: block; list-style: none; margin: 0 0 1rem 0; padding: 0; width: ~"calc(33.3333% - 1rem)"; text-align: center; }
+:local .benefit + .benefit			{}
+:local .benefit-image				{ width: 100%; border-radius: 0.5rem; margin: 0 0 1rem 0; }
+:local .benefit-title				{ font-size: 2.6rem; }
+:local .benefit-description			{ font-size: 1.2rem;}
+
+:local .cover-tech-outer            { transform: rotate(6deg); transform-origin: center center; margin: 20rem -10rem 0rem -10rem; .background(@gradient5-color2, @gradient4-color1); }
+:local .cover-tech					{ transform: rotate(-12deg); transform-origin: center center; margin: -20rem -10rem 10rem -10rem; padding: 10rem 1rem; box-sizing: border-box; .background(#EAEAEA, #FFFFFF);  z-index: 9990; }
+:local .cover-tech-inside		    { transform: rotate(6deg); max-width: @width-desktop; width: 100%; margin: 0 auto; }
+:local .cover-tech-inside h1        {}
+:local .cover-tech-inside p         { font-size: 1.0rem; }
+
+:local .techs						{ display: block; list-style: none; margin: 0; padding: 0; white-space: nowrap; overflow: hidden; text-overflow: clip; text-align: center; }
+
+:local .tech						{ display: inline-block; margin: 0; padding: 0; }
+:local .tech + .tech				{ margin: 0 0 0 2rem; }
+:local .tech-image					{ max-width: 100%; max-height: 1.8rem; -webkit-filter: grayscale(100%); filter: grayscale(100%); }
+
+:local .cover-error 				{ .background8; padding: 20rem 20rem 10rem 20rem; transform: rotate(6deg); margin: -10rem -10rem 0 -10rem; }
+:local .cover-error-inside			{ transform: rotate(-6deg); max-width: @width-desktop; width: 100%; margin: auto; }
+:local .cover-error-inside h1		{ color: #FFF; }
+:local .cover-error-inside p		{ color: #FFF; font-size: 1.4rem; }
+
+:local .footer                    	{ display: flex; width: 100%; max-width: @width-desktop; margin: auto; padding: 1rem 1rem 2rem 1rem; box-sizing: border-box; justify-content: space-between; align-items: center; align-content: center; }
+:local .footer-copyright          	{ text-align: left; }
+:local .footer-copyright p        	{ margin: 0; padding: 0; line-height: 150%; }
+:local .footer-copyright a        	{ font-weight: bold; }
+:local .footer-links              	{}
+
+:local .footer-links-menu-social         	{ display: block; margin: 0; padding: 0; text-align: right; list-style: none; white-space: nowrap; }
+:local .footer-links-menu-social li      	{ display: inline-block; margin: 0; padding: 0; vertical-align: middle; }
+:local .footer-links-menu-social li + li 	{ margin-left: 1rem; }
+:local .footer-links-menu-social i    	{ font-size: 1.8rem; vertical-align: middle; }
+
+:local .footer-links-menu         	{ display: block; margin: 1rem 0 0 0; padding: 0; text-align: right; list-style: none; white-space: nowrap; }
+:local .footer-links-menu li      	{ display: inline-block; margin: 0; padding: 0; vertical-align: middle; }
+:local .footer-links-menu li + li 	{ margin-left: 1rem; }
+:local .footer-links-menu i    		{ font-size: 1.4rem; vertical-align: middle; }
+
+
+
+// tablet
+@media (min-width: 530px) and (max-width: 949px) {
+
+}
+// smartphone
+@media (max-width: 529px) {
+	:local .cover-main-outer		{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-main				{ margin: 0; padding: 10rem 1rem; /*transform: none;*/ }
+	:local .cover-main-inside		{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-main-inside h1	{ font-size: 3.0rem; }
+	:local .cover-main-inside p		{ font-size: 1.2rem; }
+
+	:local .cover-main-logo			{ height: 8rem; }
+
+	:local .cover-services-outer	{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-services			{ margin: 0; padding: 10rem 1rem; /*transform: none;*/ }
+	:local .cover-services-inside	{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .services 				{ display: block; margin: 0 auto; padding: 0; width: 100%; max-width: @width-desktop; }
+	:local .service				{ display: block; margin: 0 0 1rem 0; padding: 0; width: 100%; }
+	//:local .services li img			{ display: block; width: 100%; }
+
+	:local .cover-clients-outer		{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-clients			{ margin: 0; padding: 10rem 1rem; /*transform: none;*/ }
+	:local .cover-clients-inside	{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .clients					{ display: block; }
+
+	:local .client				{ display: block; width: 100%; }
+	:local .client-image			{ display: block; width: 10rem; height: auto; margin: auto; }
+
+	:local .cover-benefits-outer	{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-benefits			{ margin: 0; padding: 10rem 1rem; /*transform: none;*/ }
+	:local .cover-benefits-inside	{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .benefits				{ display: block; }
+
+	:local .benefit					{ display: block; width: 100%; }
+	:local .benefit-description		{ margin: 0; }
+
+	:local .cover-tech-outer		{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .cover-tech				{ margin: 0; padding: 10rem 1rem; /*transform: none;*/ }
+	:local .cover-tech-inside		{ margin: 0; padding: 0; /*transform: none;*/ }
+	:local .techs					{ display: block; }
+
+	:local .tech					{ display: inline-block; width: auto; }
+
+	:local .footer					{ display: block; width: 100%; margin: 4rem 0 1rem 0; }
+	:local .footer-copyright		{ display: block; width: 100%; }
+	:local .footer-links			{ display: block; width: 100%; margin: 2rem 0; }
+
+	:local .footer-copyright			{ text-align: center; }
+	:local .footer-links-menu			{ display: block; margin: 1rem 0 0 0; text-align: center; }
+	:local .footer-links-menu-social	{ display: block; margin: 1rem 0 0 0; text-align: center; }
+
+  /*:local .cover-main 				{ padding: 4rem 12rem; }
+
+  :local .cover-main-inside 		{}
+  :local .cover-main-inside h1 		{ font-size: 2.6rem; }
+  :local .cover-main-inside p 		{ font-size: 1.2rem; }
+
+  :local .cover-main-logo 			{ height: 4rem; }
+
+  :local .cover-benefits 			{ padding: 12rem; }
+
+  :local ul.benefits 				{}
+  :local ul.benefits li 			{ width: ~"calc(50% - 1rem)"; }
+  :local ul.benefits li img 		{}
+  :local ul.benefits li p 			{}
+
+  :local .cover-clients				{ padding: 3rem 11rem 5rem 12rem; }
+  :local .cover-clients-inside 		{}
+  :local .cover-clients-inside h1 	{}
+  :local .cover-clients-inside p 	{}
+
+  :local ul.clients 				{}
+  :local ul.clients li 				{ width: ~"calc(50% - 1rem)"; }
+  :local ul.clients li img 			{ max-width: 120px; }
+
+  :local ul.footer 					{ padding: 1rem; }
+  :local ul.footer li 				{ display: block; padding: 0; margin: 0 0 1rem 0; }
+  :local ul.footer li + li:before 	{ content: ""; padding: 0; }
+
+  :local .cover-services			{ padding: 0 2rem 5rem 2rem; }
+  :local .cover-services-inside 	{}
+  :local .cover-services-inside h1 	{}
+  :local .cover-services-inside p 	{}
+
+  :local ul.services 				{}
+  :local ul.services li 			{ width: ~"calc(50% - 1rem)"; }
+  :local ul.services li img 		{}
+
+  :local .cover-tech 				{ padding: 2rem; }*/
+
+}
