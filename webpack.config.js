@@ -5,6 +5,7 @@
  * Last Modification: 2020-02-09 22:19:44 CST
  */
 
+const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
 const TerserPlugin = require('terser-webpack-plugin');
@@ -26,12 +27,17 @@ const variables = ((env) => {
 /** @param env.production boolean */
 module.exports = [(env) => ({
 	entry: {
-		browser: ["./src/style/html.less", "./src/hydrate/index.ts"]
+		"browser": ["./src/style/lib/html.less", "./src/hydrate/browser.tsx"]
 	},
 	output : {
-		filename: "[name].js",
-		path: path.resolve(__dirname, "public", "dist", version),
-		//publicPath: "/dist/" + version + "/"
+		path: path.resolve(__dirname, "public", "build"),
+		filename: (data) => {
+			fs.writeFileSync(path.resolve(__dirname, "public", "build", data.runtime + ".json"),  JSON.stringify({
+				hash: data?.chunk?.renderedHash,
+				filename: env?.production ? data?.chunk?.renderedHash : data.runtime
+			}));
+			return env?.production ? "[chunkhash].js" : "[name].js"
+		}
 	},
 	target : "web",
 	mode: env && env.production ? "production": "development",
@@ -46,11 +52,12 @@ module.exports = [(env) => ({
 			use: [{
 				loader: "ts-loader",
 				options: {
-					onlyCompileBundledFiles: true
+					onlyCompileBundledFiles: true,
+					transpileOnly: !(env && env.production)
 				}
 			}]
 		}, {
-			test: /\.(css|less)$/,
+			test: /\.less$/,
 			exclude: /node_modules/,
 			use: [{
 				loader: MiniCssExtractPlugin.loader
@@ -66,27 +73,22 @@ module.exports = [(env) => ({
 				loader: "less-loader"
 			}]
 		}, {
-			test: /\.(gif|png|jpe?g)$/i,
+			test: /\.(gif|png|jpe?g|svg)$/i,
 			use: [{
 				loader: "file-loader",
 				options: {
 					name: "[contenthash].[ext]",
-					outputPath: "images"
+					outputPath: "images",
+					publicPath: env?.production ? (process?.env?.IRSEQUISIOUS_STATIC_DOMAIN_NAME || "https://1127.0.0.1:3000/build") + "/images" : "/build/images"
 				}
 			}]
 		}]
 	},
-	plugins: env && env.production ? [
+	plugins: [
 		copyright,
 		variables,
-		//new BundleAnalyzerPlugin({ analyzerMode: "server", analyzerPort: "auto" }),
 		new MiniCssExtractPlugin({
-			filename: "[name].css"
-		})
-	] : [
-		variables,
-		new MiniCssExtractPlugin({
-			filename: "[name].css"
+			filename: env?.production ? "[chunkhash].css" : "[name].css"
 		})
 	],
 	optimization: {
