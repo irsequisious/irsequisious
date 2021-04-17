@@ -15,6 +15,10 @@
 	background: @from;
 	background: linear-gradient(to right, @from, @dest);
 }
+.background3(@from, @dest) {
+	background: @from;
+	background: linear-gradient(135deg, @from, @dest);
+}
 
 .background1 { .background(@gradient1-color1, @gradient1-color2); }
 .background2 { .background(@gradient2-color1, @gradient2-color2); }

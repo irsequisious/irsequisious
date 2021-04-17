@@ -8,17 +8,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import style from "@irsequisious/style/lib/style.less";
-import cubous from "@irsequisious/images/lib/cubous.png";
+import imageCoverMain from "@irsequisious/images/lib/cover-main.png";
 import { RootState } from "@irsequisious/reducers";
 
 class ViewMainClass extends React.Component {
 	public render() {
 		return <div className={style.container}>
-			<div className={style.coverMainOuter}>
-				<div className={style.coverMain}>
-					<div className={style.coverMainInside}>
-						<img src={cubous} className={style.coverMainLogo} alt="CubousMX: Desarrollo de software y sitios web"/>
-					</div>
+			<div className={style.coverMain}>
+				<div className={style.coverMainInside}>
+					<a href="https://cubous.mx" title="CubousMX: Desarrollo de software y sitios web en Puebla, México.">
+						<img src={imageCoverMain} className={style.coverMainLogo} alt="Soybeto.dev"/>
+					</a>
 				</div>
 			</div>
 		</div>;
