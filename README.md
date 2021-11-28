@@ -16,5 +16,5 @@ Here are some ideas to get you started:
 -->
 
 ```bash 
-echo "Hello Irsequisious!"
+echo "I'm Irsequisious 👽"
 ```
