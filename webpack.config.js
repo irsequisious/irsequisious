@@ -10,7 +10,7 @@ const path = require("path");
 const webpack = require("webpack");
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const { name, author, version } = require("./package.json");
 
 const copyright = new webpack.BannerPlugin({
@@ -40,7 +40,7 @@ module.exports = [(env) => ({
 		}
 	},
 	target : "web",
-	mode: env && env.production ? "production": "development",
+	mode: env && env.production ? "production" : "development",
 	devtool: env && env.production ? undefined : "eval-source-map",
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx"]
@@ -92,6 +92,6 @@ module.exports = [(env) => ({
 		})
 	],
 	optimization: {
-		minimizer: [new TerserPlugin({ extractComments: false }), new OptimizeCSSAssetsPlugin({})]
+		minimizer: [new TerserPlugin({ extractComments: false }), new CssMinimizerWebpackPlugin({})]
 	}
 })];

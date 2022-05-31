@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node server.js",
     "webpack": "webpack --env production",
-    "webpack:watch": "webpack --env development --watch",
+    "webpack:dev": "webpack --env development --watch --progress",
     "webpack-server": "webpack --env production --config webpack-server.config.js",
-    "webpack-server:watch": "webpack --env development --watch --config webpack-server.config.js"
+    "webpack-server:dev": "webpack --env development --watch --progress --config webpack-server.config.js"
   },
   "repository": {
     "type": "git",

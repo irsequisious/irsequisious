@@ -6,7 +6,7 @@
  */
 
 import React, { Fragment } from "react";
-import ReactDOM from "react-dom";
+import { hydrateRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Store } from "@irsequisious/store";

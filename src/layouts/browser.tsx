@@ -26,16 +26,16 @@ class LayoutBrowserClass extends React.Component<Props, State> {
 				<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
 				<meta charSet="UTF-8"/>
 				<Fragment>{canonical ? <link rel="canonical" href={canonical}/> : null}</Fragment>
-				<link rel="icon" type="image/png" href={"/favicon.png"} sizes={"32x32"}/>
-				<link rel="icon" type="image/png" href={"/favicon@2x.png"} sizes={"64x64"}/>
-				<link rel="icon" type="image/png" href={"/favicon@3x.png"} sizes={"128x128"}/>
-				<link rel="icon" type="image/png" href={"/favicon@4x.png"} sizes={"256x256"}/>
+				<link rel="icon" type="image/png" href={"/favicon-32x32.png"} sizes={"32x32"}/>
+				<link rel="icon" type="image/png" href={"/favicon-64x64.png"} sizes={"64x64"}/>
+				<link rel="icon" type="image/png" href={"/favicon-128x128.png"} sizes={"128x128"}/>
+				<link rel="icon" type="image/png" href={"/favicon-256x256.png"} sizes={"256x256"}/>
 				<link rel="apple-touch-icon" href="https://www.cubous.mx/icons/apple-icon.png"/>
 				<link rel="apple-touch-icon" sizes="76x76" href="https://www.cubous.mx/icons/apple-icon-76x76.png"/>
 				<link rel="apple-touch-icon" sizes="120x120" href="https://www.cubous.mx/icons/apple-icon-120x120.png"/>
 				<link rel="apple-touch-icon" sizes="152x152" href="https://www.cubous.mx/icons/apple-icon-152x152.png"/>
 				<link rel="stylesheet" type="text/css" href={"https://fonts.googleapis.com/css?family=Montserrat:400,700,900"}/>
-				<link rel="stylesheet" type="text/css" href={"https://static.cubous.mx/vendors/font-awesome/4.7.0/css/font-awesome.min.css"}/>
+				<link rel="stylesheet" type="text/css" href={"https://static.irsequisious.com/vendors/font-awesome/4.7.0/css/font-awesome.min.css"}/>
 				<link rel="stylesheet" type="text/css" href={IRSEQUISIOUS_ASSETS_BROWSER_NAME + ".css"}/>
 				<script type="application/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-111227586-2" async/>
 				<script type="application/javascript" dangerouslySetInnerHTML={{ __html: "window.dataLayer=window.dataLayer||[];" +
@@ -43,7 +43,7 @@ class LayoutBrowserClass extends React.Component<Props, State> {
 						"dataLayer.push(arguments)}" +
 						"gtag('js',new Date());" +
 						"gtag('config','UA-111227586-2');" }}/>
-				<Fragment>{((structuredData) || []).map((item, index) => {
+				<Fragment>{(structuredData || []).map((item, index) => {
 					return <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}/>;
 				})}</Fragment>
             </head>
